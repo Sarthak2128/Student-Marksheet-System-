@@ -1,33 +1,24 @@
-This C program is a console-based application that simulates the creation of a student report card. It allows the user to input student details and marks for five subjects, then calculates the total, percentage, grade, and pass/fail status. The output is displayed in a structured format, similar to a school-issued mark sheet.
+This C program is a Student Report Card Generator, designed to take input from the user and generate a structured academic report for a student. It is a menu-driven console application that helps users calculate and display a student's performance in five key subjects. The program is ideal for students learning C programming, as it incorporates fundamental concepts such as input/output operations, conditional statements, validation, and formatted output.
 
-Program Workflow and Features
-1.  Student Detail Input
-The program begins by prompting the user for:
+1)Input Collection
+At the beginning, the program prompts the user to enter basic student information:
 
-Roll Number (int)
+Roll Number
 
-Name (char[])
+Name
 
-Class Standard (int)
+Class
 
-These are collected using scanf():
+This is followed by a simple menu with two options:
 
+Enter Marks
 
-2.  Menu-Driven Interaction
-The user is presented with two choices:
+Exit
 
-1. Enter Marks
-2. Exit
-The program uses a basic menu system to:
+The user selects option 1 to continue entering marks. Option 2 allows the user to exit the program gracefully.
 
-Proceed to the mark entry screen if the user selects 1
-
-Exit the program if the user selects 2
-
-Print an error message if the input is invalid (e.g., 3, 99)
-
-3.  Subject Marks Entry
-Upon choosing option 1, the user is prompted to enter marks for the following 5 subjects:
+2) Marks Input and Validation
+Upon choosing to enter marks, the user is prompted to input scores for five subjects:
 
 Mathematics
 
@@ -39,75 +30,58 @@ English
 
 Computer Science
 
-printf("Enter marks for Mathematics: ");
-scanf("%d", &math);
-4. Validation of Marks
-Immediately after input, the program checks if any subject marks exceed 100:
+Each subject is expected to have a mark out of 100. The program checks if any of the entered marks exceed 100. If so, it terminates early with an error message, ensuring that invalid inputs are not processed further. This validation helps in maintaining the integrity of the result generation process.
 
-if (math > 100 || physics > 100 || chemistry > 100 || english > 100 || cs > 100)
-If invalid, an error is displayed:
+3)Calculations and Evaluation
+Once the marks are validated, the program performs the following calculations:
 
-Invalid marks entered! Marks should not exceed 100.
-The program then terminates early using return 0;.
+Total Marks: Sum of marks in all five subjects.
 
-5. Total and Percentage Calculation
-If all marks are valid, the program computes:
+Percentage: Total marks divided by the number of subjects (i.e., 5).
 
-Total Marks:
+The program then checks if the student has failed in any subject. A student is considered failed in a subject if the score is less than 45 in that subject. If the student has failed in any one or more subjects, a failFlag is raised.
 
-total = math + physics + chemistry + english + cs;
-Percentage:
+4) Grade Assignment
+Grades are assigned based on the percentage obtained:
 
-percentage = total / 5.0;
-6. Fail Check
-The program uses a flag (failFlag) to determine if the student has failed in any subject (marks < 45):
+A+: 90% and above
 
-if (math < 45 || physics < 45 || chemistry < 45 || english < 45 || cs < 45)
-    failFlag = 1;
-7.  Report Card Display
-A well-formatted report card is displayed with headings and subject-wise marks using formatted printf statements.
+A : 80–89%
 
-printf("| %-20s | %-10d |\n", "Mathematics", math);
-The output includes:
+B : 70–79%
 
-Roll number
+C : 60–69%
 
-Name
+D : 50–59%
 
-Class
+F : Below 50%
 
-Each subject's marks
+This grading logic helps in giving a qualitative measure of student performance.
 
-Total marks
+5) Pass/Fail Criteria
+A student passes only if:
 
-Percentage
+The percentage is 50% or above
 
-8.  Grade Assignment
-Based on the percentage, a grade is assigned:
+No subject has a score less than 45
 
-if (percentage >= 90)         → A+
-else if (percentage >= 80)    → A
-else if (percentage >= 70)    → B
-else if (percentage >= 60)    → C
-else if (percentage >= 50)    → D
-else                          → F
-9.  Pass or Fail Status
-The program decides Pass or Fail using two conditions:
+If any of the above conditions are not met, the student is considered Failed.
 
-If the student has failed in any subject (using failFlag)
+6) Report Card Display
+The program then displays a well-formatted report card with clear and clean output:
 
-If the overall percentage is less than 50%
+Student details: Roll number, name, class
 
-Output:
+Subject-wise marks
 
-if (failFlag == 1)
-    printf("Pass/Fail : Fail");
-else if (percentage >= 50)
-    printf("Pass/Fail : Pass");
-else
-    printf("Pass/Fail : Fail");
-10.  Exit Option
-If the user selects option 2, the program exits:
+Total marks and percentage
 
+Assigned grade
 
-printf("Program Exited.\n");
+Pass or fail status
+
+This output simulates an actual mark sheet and is printed in a neat tabular format using formatted printf() statements.
+
+7)Program Termination
+If the user selects option 2 from the menu, the program displays "Program Exited." and terminates normally.
+
