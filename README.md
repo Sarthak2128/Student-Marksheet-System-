@@ -1,7 +1,6 @@
-This C program is a Student Report Card Generator, designed to take input from the user and generate a structured academic report for a student. It is a menu-driven console application that helps users calculate and display a student's performance in five key subjects. The program is ideal for students learning C programming, as it incorporates fundamental concepts such as input/output operations, conditional statements, validation, and formatted output.
+This project is a Student Report Card Generator developed in the C programming language. It serves as a console-based tool for generating and displaying a student's academic report card based on marks entered for five subjects. This program is ideal for beginners learning C, as it covers core programming concepts such as user input, decision-making, basic validation, and formatted output.
 
-1)Input Collection
-At the beginning, the program prompts the user to enter basic student information:
+When executed, the program begins by prompting the user to enter essential student information:
 
 Roll Number
 
@@ -9,16 +8,13 @@ Name
 
 Class
 
-This is followed by a simple menu with two options:
+Once these details are entered, the user is given a choice:
 
 Enter Marks
 
-Exit
+Exit the Program
 
-The user selects option 1 to continue entering marks. Option 2 allows the user to exit the program gracefully.
-
-2) Marks Input and Validation
-Upon choosing to enter marks, the user is prompted to input scores for five subjects:
+If the user chooses to enter marks, the program sequentially asks for the scores in the following five subjects:
 
 Mathematics
 
@@ -30,58 +26,65 @@ English
 
 Computer Science
 
-Each subject is expected to have a mark out of 100. The program checks if any of the entered marks exceed 100. If so, it terminates early with an error message, ensuring that invalid inputs are not processed further. This validation helps in maintaining the integrity of the result generation process.
+After entering the marks, the program performs a validation check to ensure that none of the entered marks exceed 100, which is the maximum allowed per subject. If any subject mark is greater than 100, the program alerts the user with an "Invalid marks entered!" message and terminates.
 
-3)Calculations and Evaluation
-Once the marks are validated, the program performs the following calculations:
+If all marks are valid, the program calculates:
 
-Total Marks: Sum of marks in all five subjects.
+Total Marks: The sum of all five subject marks.
 
-Percentage: Total marks divided by the number of subjects (i.e., 5).
+Percentage: Total marks divided by the number of subjects (5), calculated as a floating-point number.
 
-The program then checks if the student has failed in any subject. A student is considered failed in a subject if the score is less than 45 in that subject. If the student has failed in any one or more subjects, a failFlag is raised.
+Grade: Assigned based on the percentage as per the following scale:
 
-4) Grade Assignment
-Grades are assigned based on the percentage obtained:
+A+ : 90 and above
 
-A+: 90% and above
+A : 80 to 89
 
-A : 80–89%
+B : 70 to 79
 
-B : 70–79%
+C : 60 to 69
 
-C : 60–69%
+D : 50 to 59
 
-D : 50–59%
+F : Below 50
 
-F : Below 50%
+In addition to overall percentage, the program also checks if the student has scored at least 45 marks in each subject. If the student scores below 45 in even a single subject, they are marked as "Fail", regardless of their overall percentage. Otherwise, a student with at least 50% and no failing subject is marked as "Pass".
 
-This grading logic helps in giving a qualitative measure of student performance.
+Finally, the report card is printed in a clean, tabular format showing:
 
-5) Pass/Fail Criteria
-A student passes only if:
+Student details (Roll No, Name, Class)
 
-The percentage is 50% or above
+Individual marks for each subject
 
-No subject has a score less than 45
+Total marks
 
-If any of the above conditions are not met, the student is considered Failed.
+Percentage
 
-6) Report Card Display
-The program then displays a well-formatted report card with clear and clean output:
+Grade
 
-Student details: Roll number, name, class
+Pass/Fail status
 
-Subject-wise marks
+🎯 Educational Purpose
+This project is a great exercise in:
 
-Total marks and percentage
+Working with basic I/O in C (scanf and printf)
 
-Assigned grade
+Applying conditional logic (if, else if, else)
 
-Pass or fail status
+Validating user input
 
-This output simulates an actual mark sheet and is printed in a neat tabular format using formatted printf() statements.
+Using flags (failFlag) to control program flow
 
-7)Program Termination
-If the user selects option 2 from the menu, the program displays "Program Exited." and terminates normally.
+Presenting output in a user-friendly, formatted style
+
+It's especially useful for computer science students looking to strengthen their foundation in C programming.
+
+💡 Future Enhancements (Ideas)
+Support for multiple students in a single session
+
+File I/O to save report cards to a text file
+
+GUI version using C with graphics libraries or integration with other platforms
+
+Add subject name inputs and variable number of subjects
 
