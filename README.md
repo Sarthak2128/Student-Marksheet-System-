@@ -88,3 +88,6 @@ GUI version using C with graphics libraries or integration with other platforms
 
 Add subject name inputs and variable number of subjects
 
+👤 Author
+Developed by [Sarthak Jahagiradr]
+
