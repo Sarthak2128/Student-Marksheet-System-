@@ -1,0 +1,229 @@
+🧾 Title: Student Marksheet Generator in C
+📝 Description:
+This C program is designed to take student details and their subject marks as input, compute their total and percentage, determine their grade, and finally decide whether the student has passed or failed. It features a simple command-line menu that allows a user to either enter marks or exit the program.
+
+🔍 Step-by-Step Explanation:
+📌 1. Header File Inclusion
+c
+Copy
+Edit
+#include <stdio.h>
+Includes the Standard Input/Output library, which is essential for using printf and scanf.
+
+📌 2. Variable Declarations
+c
+Copy
+Edit
+int choice;
+int math, physics, chemistry, english, cs, total;
+float percentage;
+int rollNo, classStd;
+char name[50];
+int failFlag = 0;
+choice: Stores the user's menu selection.
+
+Subject marks (math, physics, chemistry, english, cs): Hold marks out of 100.
+
+total: Sum of all subject marks.
+
+percentage: Average score computed from total.
+
+rollNo, classStd: Student's roll number and class.
+
+name[50]: Array to store the student's name.
+
+failFlag: Flag to determine if the student has failed in any subject (initially set to 0).
+
+📌 3. User Inputs for Student Information
+c
+Copy
+Edit
+printf("Enter your roll no: ");
+scanf("%d", &rollNo);
+
+printf("Enter your name: ");
+scanf("%s", name);
+
+printf("Enter your class: ");
+scanf("%d", &classStd);
+Accepts roll number, name (only first word), and class from the user.
+
+Note: scanf("%s", name) reads input till the first space. Full names with spaces require fgets() instead.
+
+📌 4. Menu Display
+c
+Copy
+Edit
+printf("\n1. Enter Marks ");
+printf("\n2. Exit");
+printf("\nEnter your choice: ");
+scanf("%d", &choice);
+Gives the user two options:
+
+1 to enter marks.
+
+2 to exit the program.
+
+📌 5. Marks Entry and Validation
+c
+Copy
+Edit
+if (choice == 1) {
+    ...
+}
+If user selects 1, the program:
+
+Accepts marks for Mathematics, Physics, Chemistry, English, and Computer Science.
+
+Validates if any mark exceeds 100. If so, displays an error and terminates.
+
+c
+Copy
+Edit
+if (math > 100 || physics > 100 || chemistry > 100 || english > 100 || cs > 100) {
+    printf("\nInvalid marks entered! Marks should not exceed 100.\n");
+    return 0;
+}
+📌 6. Calculating Total and Percentage
+c
+Copy
+Edit
+total = math + physics + chemistry + english + cs;
+percentage = total / 5.0;
+Total is the sum of all five subjects.
+
+Percentage is calculated as average of the marks.
+
+📌 7. Fail Detection
+c
+Copy
+Edit
+if (math < 45 || physics < 45 || chemistry < 45 || english < 45 || cs < 45) {
+    failFlag = 1;
+}
+If marks in any subject are less than 45, the student is considered failed, and the failFlag is set.
+
+📌 8. Displaying the Marksheet
+The following section prints a well-formatted marksheet with all details:
+
+c
+Copy
+Edit
+printf("\n--------------------------------------------\n");
+printf("             GCOEY SSC/HSC SCHOOL            \n");
+...
+Displays:
+
+Student's roll number, name, and class.
+
+A table showing subject-wise marks.
+
+Total marks and percentage.
+
+Grade (based on percentage).
+
+Final result (Pass/Fail).
+
+📌 9. Grade Calculation
+c
+Copy
+Edit
+if (percentage >= 90) {
+    printf("Grade     : A+\n");
+} else if (percentage >= 80) {
+    printf("Grade     : A\n");
+} else if (percentage >= 70) {
+    printf("Grade     : B\n");
+} else if (percentage >= 60) {
+    printf("Grade     : C\n");
+} else if (percentage >= 50) {
+    printf("Grade     : D\n");
+} else {
+    printf("Grade     : F\n");
+}
+Grade is assigned based on the percentage bracket.
+
+📌 10. Pass/Fail Result
+c
+Copy
+Edit
+if (failFlag == 1) {
+    printf("Pass/Fail : Fail");
+} else if (percentage >= 50) {
+    printf("Pass/Fail : Pass\n");
+} else {
+    printf("Pass/Fail : Fail\n");
+}
+If the student failed any subject, overall result is Fail.
+
+Else, if percentage ≥ 50, Pass, otherwise Fail.
+
+📌 11. Exit Option
+c
+Copy
+Edit
+else if (choice == 2) {
+    printf("Program Exited.\n");
+} else {
+    printf("Wrong choice\n");
+}
+If user selects 2, program exits.
+
+Any other input is treated as invalid.
+
+✅ Sample Output
+markdown
+Copy
+Edit
+Enter your roll no: 101
+Enter your name: Sarthak
+Enter your class: 12
+
+1. Enter Marks 
+2. Exit
+Enter your choice: 1
+
+Enter marks for Mathematics: 87
+Enter marks for Physics: 91
+Enter marks for Chemistry: 85
+Enter marks for English: 78
+Enter marks for Computer Science: 92
+
+--------------------------------------------
+             GCOEY SSC/HSC SCHOOL            
+--------------------------------------------
+Roll No : 101
+Name    : Sarthak
+Class   : 12
+--------------------------------------------
+| Subject              | Marks      |
+--------------------------------------------
+| Mathematics          | 87         |
+| Physics              | 91         |
+| Chemistry            | 85         |
+| English              | 78         |
+| Computer Science     | 92         |
+--------------------------------------------
+| Total Marks          | 433        |
+| Percentage           | 86.60      |
+--------------------------------------------
+Grade     : A
+Pass/Fail : Pass
+🛠️ Possible Enhancements
+Use fgets() to allow full names with spaces.
+
+Add support for more subjects or dynamic subject entry.
+
+Store and retrieve student records using files.
+
+Add login system for teachers/admins.
+
+📚 Conclusion
+This C program is a great example of:
+
+Using basic control structures (if, else if, else).
+
+Performing calculations and logical checks.
+
+Formatting output professionally.
+It can be a useful mini-project for beginners to understand user interaction, validation, and conditional logic in C.
