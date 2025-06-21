@@ -1,0 +1,36 @@
+Enter your roll no: 18
+Enter your name: sarthak
+Enter your class: 12
+
+1. Enter Marks 
+2. Exit
+Enter your choice: 1
+-------------------------
+
+Enter marks for Mathematics: 90
+Enter marks for Physics: 98
+Enter marks for Chemistry: 99
+Enter marks for English: 100
+Enter marks for Computer Science: 100
+
+--------------------------------------------
+             GCOEY SSC/HSC SCHOOL            
+--------------------------------------------
+Roll No : 18
+Name    : sarthak
+Class   : 12
+--------------------------------------------
+| Subject              | Marks      |
+--------------------------------------------
+| Mathematics          | 90         |
+| Physics              | 98         |
+| Chemistry            | 99         |
+| English              | 100        |
+| Computer Science     | 100        |
+--------------------------------------------
+| Total Marks          | 487        |
+| Percentage           | 97.40      |
+--------------------------------------------
+Grade     : A+
+Pass/Fail : Pass
+
